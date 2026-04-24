@@ -1,113 +1,112 @@
-// Background images for each question, keyed by question ID.
-// Uses HP Fandom Wiki and Wikimedia Commons images.
-// QuestionScreen falls back to no background if an image fails to load.
+// Local image paths for question backgrounds.
+// null = no background (plain dark theme shown instead).
+// Base path is relative to the public/ folder.
 
-const W = (file) => `https://en.wikipedia.org/wiki/Special:FilePath/${file}`;
-const HP = (path) => `https://static.wikia.nocookie.net/harrypotter/images/${path}/revision/latest/scale-to-width-down/800?cb=20130101000000`;
+const img = (file) => `/harry-potter-game/images/questions/${file}`;
 
 export const QUESTION_IMAGES = {
   // ── Round 1: Draco Malfoy ───────────────────────────────
-  r1q1: HP('e/ed/Slytherin_ClearBG.png'),               // Slytherin crest
-  r1q2: HP('a/a6/MalfoyManor.jpg'),                     // Malfoy Manor
-  r1q3: HP('c/c2/Dobby_DH_Crop.jpg'),                   // Dobby
-  r1q4: W('The_Domesticated_Ferret.jpg'),                // White ferret
-  r1q5: HP('2/2f/Nimbus_2001.jpg'),                      // Nimbus 2001
+  r1q1: null,
+  r1q2: null,
+  r1q3: img('r1q3.jpg'),      // Dobby
+  r1q4: null,
+  r1q5: img('r1q5.jpg'),      // Nimbus 2001
 
   // ── Round 2: George Weasley ─────────────────────────────
-  r2q1: HP('f/f1/Map.gif'),                              // Marauder's Map
-  r2q2: HP('6/6f/Wwwexterior.jpg'),                      // Weasleys' Wizard Wheezes
-  r2q3: HP('5/5b/GobletOfFireFilm.jpg'),                 // Goblet of Fire
-  r2q4: HP('6/6d/OBHWF.jpg'),                            // Battle of Seven Potters
-  r2q5: W('Eurasian_Magpie_crop.jpg'),                   // Magpie
+  r2q1: img('r2q1.jpg'),      // Marauder's Map
+  r2q2: img('r2q2.jpg'),      // Weasleys' Wizard Wheezes shop
+  r2q3: null,
+  r2q4: img('r2q4.jpg'),      // Battle of the Seven Potters
+  r2q5: null,
 
   // ── Round 3: Fred Weasley ───────────────────────────────
-  r3q1: HP('3/32/BattleofHogwarts.jpg'),                 // Battle of Hogwarts
-  r3q2: HP('6/61/Quidditch_PS_screenshot.jpg'),          // Quidditch beaters
-  r3q3: HP('8/8e/SkivingSnackboxes.jpg'),                // Skiving Snackboxes
-  r3q4: HP('4/4e/Yule_Ball.jpg'),                        // Yule Ball
-  r3q5: HP('d/d8/PortableSwamp.jpg'),                    // Portable Swamp
+  r3q1: null,
+  r3q2: null,
+  r3q3: null,
+  r3q4: null,
+  r3q5: img('r3q5.jpg'),      // Swamp / Portable Swamp
 
   // ── Round 4: Mr. Weasley ────────────────────────────────
-  r4q1: HP('4/41/TheBurrow.jpg'),                        // The Burrow
-  r4q2: HP('a/ab/FlyingFordAnglia.JPG'),                 // Flying Ford Anglia
-  r4q3: HP('d/d6/Nagini.jpg'),                           // Nagini
-  r4q4: W('Rubber_duckies_so_many.jpg'),                 // Rubber ducks
-  r4q5: HP('3/3e/Ministry_of_Magic_Atrium.jpg'),         // Ministry of Magic
+  r4q1: null,
+  r4q2: null,
+  r4q3: img('r4q3.webp'),     // Nagini
+  r4q4: null,
+  r4q5: null,
 
   // ── Round 5: Professor McGonagall ───────────────────────
-  r5q1: HP('1/11/Transfiguration_classroom_PM.jpg'),     // Transfiguration class
-  r5q2: HP('b/b0/GryffindorCommonRoom.jpg'),             // Gryffindor common room
-  r5q3: W('Cat_November_2010-1a.jpg'),                   // Tabby cat
-  r5q4: HP('6/61/Quidditch_PS_screenshot.jpg'),          // Quidditch pitch
-  r5q5: HP('5/5e/Prof._McGonagall.jpg'),                 // McGonagall
+  r5q1: img('r5q1.jpg'),      // Transfiguration classroom
+  r5q2: img('r5q2.jpg'),      // Gryffindor common room
+  r5q3: img('r5q3.jpg'),      // Tabby cat
+  r5q4: null,
+  r5q5: img('r5q5.webp'),     // Professor McGonagall
 
   // ── Round 6: Mrs. Weasley ───────────────────────────────
-  r6q1: HP('4/41/TheBurrow.jpg'),                        // The Burrow / Weasley family
-  r6q2: W('Knitting_in_the_round_using_DPNs.jpg'),       // Knitting / Weasley jumper
-  r6q3: HP('8/84/Bellatrix_Lestrange.jpg'),              // Bellatrix Lestrange
-  r6q4: HP('1/1c/Boggart.jpg'),                          // Boggart in wardrobe
-  r6q5: HP('8/89/Molly_Weasley_HBP.jpg'),                // Molly Weasley
+  r6q1: null,
+  r6q2: null,
+  r6q3: img('r6q3.webp'),     // Bellatrix Lestrange
+  r6q4: img('r6q4.webp'),     // Boggart
+  r6q5: img('r6q5.webp'),     // Molly Weasley
 
   // ── Round 7: Remus Lupin ────────────────────────────────
-  r7q1: W('FullMoon2010.jpg'),                           // Full moon (werewolf)
-  r7q2: HP('0/05/Nymphadora_Tonks.jpg'),                 // Tonks
-  r7q3: W('FullMoon2010.jpg'),                           // Moon (Moony)
-  r7q4: HP('4/4a/Wolfsbane_Potion.jpg'),                 // Wolfsbane Potion
-  r7q5: HP('6/6e/Teddy_Lupin.jpg'),                      // Teddy Lupin
+  r7q1: img('r7q1.jpg'),      // Full moon (werewolf)
+  r7q2: img('r7q2.webp'),     // Tonks
+  r7q3: img('r7q3.jpg'),      // Moon (Moony)
+  r7q4: img('r7q4.webp'),     // Wolfsbane Potion
+  r7q5: null,
 
   // ── Round 8: Lily Potter ────────────────────────────────
-  r8q1: HP('b/b0/GryffindorCommonRoom.jpg'),             // Gryffindor
-  r8q2: HP('9/9a/Lily_Evans.jpg'),                       // Lily Evans
-  r8q3: HP('1/1b/SnapePoster_crop.jpg'),                 // Snape
-  r8q4: HP('7/7a/Lily_Sacrifices_herself.jpg'),          // Lily's sacrifice
-  r8q5: W('Roe_deer_doe.jpg'),                           // Doe in forest
+  r8q1: img('r8q1.jpg'),      // Gryffindor common room
+  r8q2: img('r8q2.webp'),     // Lily Evans
+  r8q3: img('r8q3.webp'),     // Severus Snape
+  r8q4: img('r8q4.jpg'),      // Lily Potter
+  r8q5: null,
 
   // ── Round 9: James Potter ───────────────────────────────
-  r9q1: HP('e/e8/Invisibility_Cloak.jpg'),               // Invisibility Cloak
-  r9q2: HP('6/6c/Peter_Pettigrew.jpg'),                  // Peter Pettigrew / Wormtail
-  r9q3: W('Red_deer_stag_2009_denmark.jpg'),             // Stag
-  r9q4: HP('2/27/James_Potter.jpg'),                     // James Potter
-  r9q5: HP('6/61/Quidditch_PS_screenshot.jpg'),          // Quidditch chaser
+  r9q1: null,
+  r9q2: img('r9q2.webp'),     // Peter Pettigrew
+  r9q3: img('r9q3.jpg'),      // Stag
+  r9q4: img('r9q4.webp'),     // James Potter
+  r9q5: null,
 
   // ── Round 10: Hagrid ────────────────────────────────────
-  r10q1: HP('0/04/Fluffy.jpg'),                          // Fluffy the three-headed dog
-  r10q2: HP('e/ec/Care_of_Magical_Creatures_class.jpg'), // Magical creatures class
-  r10q3: HP('c/c1/NorwegianRidgeback.jpg'),              // Norwegian Ridgeback dragon
-  r10q4: HP('d/d3/Grawp.jpg'),                           // Grawp the giant
-  r10q5: HP('8/8a/Hagrid%27s_Hut.jpg'),                  // Hagrid's Hut
+  r10q1: img('r10q1.webp'),   // Fluffy
+  r10q2: img('r10q2.jpg'),    // Care of Magical Creatures
+  r10q3: img('r10q3.jpg'),    // Norwegian Ridgeback / Norbert
+  r10q4: img('r10q4.webp'),   // Grawp
+  r10q5: null,
 
   // ── Round 11: Voldemort ─────────────────────────────────
-  r11q1: HP('d/d6/Nagini.jpg'),                          // Nagini
-  r11q2: HP('b/b5/Tom_Riddle.jpg'),                      // Tom Riddle
-  r11q3: HP('3/3c/Horcruxes.jpg'),                       // Horcruxes
-  r11q4: W('Phoenix_Rising.jpg'),                        // Phoenix
-  r11q5: HP('6/6a/Wool%27s_Orphanage.jpg'),              // Wool's Orphanage
+  r11q1: img('r11q1.webp'),   // Nagini
+  r11q2: img('r11q2.webp'),   // Tom Riddle
+  r11q3: null,
+  r11q4: img('r11q4.jpg'),    // Fawkes / phoenix (wand core)
+  r11q5: img('r11q5.webp'),   // Wool's Orphanage
 
   // ── Round 12: Albus Dumbledore ──────────────────────────
-  r12q1: HP('5/53/Elder_Wand.jpg'),                      // Elder Wand
-  r12q2: HP('0/01/Fawkes.jpg'),                          // Fawkes the phoenix
-  r12q3: HP('8/82/Astronomy_Tower.jpg'),                 // Astronomy Tower
-  r12q4: HP('9/96/Mirror_of_Erised.jpg'),                // Mirror of Erised
-  r12q5: HP('0/0b/Dumbledore_HBP.jpg'),                  // Dumbledore portrait
+  r12q1: img('r12q1.webp'),   // Elder Wand
+  r12q2: img('r12q2.jpg'),    // Fawkes
+  r12q3: img('r12q3.webp'),   // Astronomy Tower
+  r12q4: null,
+  r12q5: img('r12q5.webp'),   // Dumbledore
 
   // ── Round 13: Ron Weasley ───────────────────────────────
-  r13q1: W('Araneus_diadematus_2009.jpg'),               // Spider
-  r13q2: HP('5/59/Giant_Chess.jpg'),                     // Giant chess
-  r13q3: HP('d/d6/Gilderoy_Lockhart.jpg'),               // Gilderoy Lockhart
-  r13q4: W('JRT_Russel_2.jpg'),                          // Jack Russell Terrier
-  r13q5: HP('4/43/Ron_Weasley_HBP_promo.jpg'),           // Ron Weasley
+  r13q1: null,
+  r13q2: null,
+  r13q3: img('r13q3.webp'),   // Gilderoy Lockhart
+  r13q4: null,
+  r13q5: img('r13q5.webp'),   // Ron Weasley
 
   // ── Round 14: Hermione Granger ──────────────────────────
-  r14q1: HP('a/a0/Crookshanks.jpg'),                     // Crookshanks
-  r14q2: W('Dental_instruments.jpg'),                    // Dentist tools
-  r14q3: HP('c/c7/Time_Turner.jpg'),                     // Time-Turner
-  r14q4: HP('c/c2/Dobby_DH_Crop.jpg'),                   // Dobby (house elf / SPEW)
-  r14q5: W('Glasses_800_edit.png'),                      // Glasses
+  r14q1: null,
+  r14q2: null,
+  r14q3: img('r14q3.webp'),   // Time-Turner
+  r14q4: img('r14q4.jpg'),    // Dobby (house elf / S.P.E.W.)
+  r14q5: img('r14q5.png'),    // Glasses
 
   // ── Round 15: Harry Potter ──────────────────────────────
-  r15q1: HP('3/36/Golden_Snitch.jpg'),                   // Golden Snitch
-  r15q2: W('Red_deer_stag_2009_denmark.jpg'),            // Stag Patronus
-  r15q3: HP('0/0a/Harry%27s_Birthday_Cake.jpg'),         // Harry's birthday cake
-  r15q4: HP('9/96/Mirror_of_Erised.jpg'),                // Mirror of Erised
-  r15q5: HP('8/82/Sign_of_the_Deathly_Hallows.jpg'),     // Deathly Hallows symbol
+  r15q1: img('r15q1.jpg'),    // Golden Snitch
+  r15q2: img('r15q2.jpg'),    // Stag Patronus
+  r15q3: null,
+  r15q4: null,
+  r15q5: img('r15q5.webp'),   // Deathly Hallows symbol
 };
