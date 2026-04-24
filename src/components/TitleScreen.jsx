@@ -1,4 +1,8 @@
+import { useState } from 'react';
+
 export default function TitleScreen({ onStart }) {
+  const [showHow, setShowHow] = useState(false);
+
   return (
     <div className="screen title-screen">
       <div className="title-stars" aria-hidden="true">
@@ -31,9 +35,59 @@ export default function TitleScreen({ onStart }) {
         <button className="btn btn-primary btn-large" onClick={onStart}>
           Begin Your Quest
         </button>
+        <button className="btn-how-to-play" onClick={() => setShowHow(true)}>
+          How to Play
+        </button>
         <p className="title-hint-text">Answer first to win · Type quickly · Use diamonds wisely</p>
         <p className="title-credit">by Chloe Gerenstein</p>
       </div>
+
+      {showHow && (
+        <div className="htp-overlay" onClick={() => setShowHow(false)}>
+          <div className="htp-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="htp-close" onClick={() => setShowHow(false)} aria-label="Close">✕</button>
+            <h2 className="htp-title">⚡ How to Play</h2>
+
+            <div className="htp-section">
+              <h3 className="htp-section-title">🎯 Goal</h3>
+              <p>Win as many of the 15 rounds as possible. Each round has 5 Harry Potter trivia questions.</p>
+            </div>
+
+            <div className="htp-section">
+              <h3 className="htp-section-title">⚡ Racing the AI</h3>
+              <p>Each question is a race — you and the AI both try to answer. Type your answer and hit <strong>Submit</strong> before the AI finishes typing. Whoever gets it right first wins the point.</p>
+            </div>
+
+            <div className="htp-section">
+              <h3 className="htp-section-title">⏱️ Timer</h3>
+              <p>You have <strong>30 seconds</strong> per question. If neither player answers correctly in time, no point is awarded.</p>
+            </div>
+
+            <div className="htp-section">
+              <h3 className="htp-section-title">💎 Diamonds</h3>
+              <ul className="htp-list">
+                <li>Win a round → <strong>+100 💎</strong></li>
+                <li>Lose a round → <strong>+20 💎</strong></li>
+                <li>You start with <strong>50 💎</strong></li>
+              </ul>
+            </div>
+
+            <div className="htp-section">
+              <h3 className="htp-section-title">💡 Hints</h3>
+              <p>Spend <strong>10 💎</strong> on a hint to instantly reveal the answer and score the point. The AI won't answer that question.</p>
+            </div>
+
+            <div className="htp-section">
+              <h3 className="htp-section-title">🤖 AI Opponents</h3>
+              <p>A new Harry Potter character faces you each round — starting with Draco Malfoy and building up to Harry Potter himself in Round 15.</p>
+            </div>
+
+            <button className="btn btn-primary" style={{ width: '100%', marginTop: '8px' }} onClick={() => setShowHow(false)}>
+              Got it!
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

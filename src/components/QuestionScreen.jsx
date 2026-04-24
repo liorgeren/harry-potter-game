@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { isCorrectAnswer } from '../utils/answerChecker';
 import { AI_AVATARS } from '../data/avatars';
+import { QUESTION_IMAGES } from '../data/questionImages';
 import AvatarDisplay from './AvatarDisplay';
 import DiamondCounter from './DiamondCounter';
 
@@ -21,6 +22,20 @@ export default function QuestionScreen({
   onUseHint,
 }) {
   const aiAvatar = AI_AVATARS[currentRound];
+  const bgImage = QUESTION_IMAGES[question.id] || null;
+  const [bgLoaded, setBgLoaded] = useState(false);
+  const [bgError, setBgError] = useState(false);
+
+  // Pre-load background image
+  useEffect(() => {
+    setBgLoaded(false);
+    setBgError(false);
+    if (!bgImage) return;
+    const img = new Image();
+    img.onload = () => setBgLoaded(true);
+    img.onerror = () => setBgError(true);
+    img.src = bgImage;
+  }, [bgImage]);
 
   const [timeLeft, setTimeLeft] = useState(QUESTION_TIME);
   const [playerInput, setPlayerInput] = useState('');
@@ -162,6 +177,15 @@ export default function QuestionScreen({
 
   return (
     <div className="screen question-screen">
+      {/* Background image */}
+      {bgLoaded && !bgError && (
+        <div
+          className="question-bg"
+          style={{ backgroundImage: `url(${bgImage})` }}
+          aria-hidden="true"
+        />
+      )}
+
       {/* Header bar */}
       <div className="question-header">
         <div className="question-progress">
