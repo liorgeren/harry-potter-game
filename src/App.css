@@ -137,7 +137,22 @@ body {
 }
 
 /* ── Title Screen ───────────────────────────────────────── */
-.title-screen { justify-content: center; text-align: center; }
+.title-screen {
+  justify-content: center;
+  text-align: center;
+  background-image: url('/harry-potter-game/images/questions/Golden-trio-harry-potter-13747243-299-400.webp');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+.title-screen::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 5, 20, 0.72);
+  z-index: 0;
+}
+.title-screen > * { position: relative; z-index: 1; }
 .title-content { display: flex; flex-direction: column; align-items: center; gap: 18px; z-index: 1; }
 .title-crest { font-size: 64px; filter: drop-shadow(0 0 20px var(--gold)); animation: pulse-glow 2s ease-in-out infinite; }
 
