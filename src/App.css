@@ -141,8 +141,8 @@ body {
   justify-content: center;
   text-align: center;
   background-image: url('/harry-potter-game/images/questions/Golden-trio-harry-potter-13747243-299-400.webp');
-  background-size: cover;
-  background-position: center top;
+  background-size: contain;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 .title-screen::before {
